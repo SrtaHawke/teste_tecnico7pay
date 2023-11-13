@@ -68,8 +68,6 @@ class _InitialPage extends State<MyHomePage> {
     final myDataTableSource = MyDataTableSource(dataTable);
 
     _dataTableWidget = PaginatedDataTable(
-      // dataRowHeight: 0,
-      // headingRowHeight: 0,
       source: myDataTableSource,
       columns: const [
         DataColumn(label: Flexible(child: Text('CEP'))),
@@ -97,7 +95,7 @@ class _InitialPage extends State<MyHomePage> {
         buildTable(dataTable);
       }
     } else {
-      // Trate o caso em que a solicitação não foi bem-sucedida
+      print("Sem dados para os parametros fornecidos");
     }
   }
 
@@ -147,7 +145,7 @@ class _InitialPage extends State<MyHomePage> {
                       border: Border(
                         bottom: BorderSide(
                           color: Colors.grey,
-                          width: 2.0, // Ajuste o valor conforme necessário
+                          width: 2.0,
                         ),
                       ),
                     ),
@@ -163,9 +161,7 @@ class _InitialPage extends State<MyHomePage> {
                   child: Row(
                     children: [
                       InkWell(
-                        onTap: () {
-                          // Ação quando o ícone for clicado
-                        },
+                        onTap: () {},
                         child: Container(
                           height: 100,
                           width: 45,
@@ -182,9 +178,7 @@ class _InitialPage extends State<MyHomePage> {
                       ),
                       const SizedBox(width: 16),
                       InkWell(
-                        onTap: () {
-                          // Ação quando o ícone for clicado
-                        },
+                        onTap: () {},
                         child: Container(
                           height: 100,
                           width: 45,
@@ -201,9 +195,7 @@ class _InitialPage extends State<MyHomePage> {
                       ),
                       const SizedBox(width: 16),
                       InkWell(
-                        onTap: () {
-                          // Ação quando o ícone for clicado
-                        },
+                        onTap: () {},
                         child: Container(
                           height: 100,
                           width: 45,
@@ -225,9 +217,7 @@ class _InitialPage extends State<MyHomePage> {
             ],
           ),
           SliverList(
-            delegate: SliverChildListDelegate([
-              // Conteúdo da lista
-            ]),
+            delegate: SliverChildListDelegate([]),
           ),
         ],
       ),
@@ -239,7 +229,7 @@ class _InitialPage extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Adicione aqui os elementos do Drawer
+              // Elementos do Menu Lateral esquerdo
             ],
           ),
         ),
@@ -276,11 +266,10 @@ class _InitialPage extends State<MyHomePage> {
               ),
               child: Row(
                 children: [
-                  // Parte à esquerda (UF e Bairro)
                   Expanded(
                     child: Row(
                       children: [
-                        // 1- Entrada de input para o estado (UF, do Brasil)
+                        // 1- Entrada de input para o estado (UF)
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
@@ -330,7 +319,7 @@ class _InitialPage extends State<MyHomePage> {
                           child: SizedBox(
                             width: 400,
                             child: TextFormField(
-                              controller: bairroController,  // Adicione o controlador aqui
+                              controller: bairroController,
                               inputFormatters: [
                                 FilteringTextInputFormatter.deny(
                                   RegExp(r'[^\w\s]'),
@@ -378,7 +367,6 @@ class _InitialPage extends State<MyHomePage> {
                             String? bairro = bairroController.text;  // Obtenha o valor do controlador
                             String? urlBase = "https://viacep.com.br/ws";
                             if (uf != null && bairro != "") {
-                              // Recuperar a capital correspondente ao UF do array
                               String? capital = ufs.firstWhere((ufData) => ufData["UF"] == uf)["capital"];
                               capital = removeSpecialCharacters(capital!);
                               getDadosTable("$urlBase/$uf/${capital.replaceAll(' ', '')}/${bairro.replaceAll(' ', '')}/json/");
@@ -499,7 +487,7 @@ class _InitialPage extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width * 0.9,
               child: Theme(
                 data: ThemeData(
-                  canvasColor: Colors.white, // Defina a cor desejada para o fundo da tabela aqui
+                  canvasColor: Colors.white,
                 ),
                 child: Container(
                   decoration: BoxDecoration(
@@ -552,7 +540,6 @@ List<Map<String, String>> ufs = [
 ];
 
 String removeSpecialCharacters(String input) {
-  // Substitua caracteres especiais por suas versões sem acentos
   input = input.replaceAll('á', 'a');
   input = input.replaceAll('â', 'a');
   input = input.replaceAll('ã', 'a');
@@ -565,8 +552,6 @@ String removeSpecialCharacters(String input) {
   input = input.replaceAll('õ', 'o');
   input = input.replaceAll('ú', 'u');
   input = input.replaceAll('ü', 'u');
-  // Adicione mais substituições conforme necessário
-
   return input;
 }
 
