@@ -399,7 +399,7 @@ class _InitialPage extends State<MyHomePage> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -421,7 +421,7 @@ class _InitialPage extends State<MyHomePage> {
                             // Implemente a lógica do botão Atualizar aqui
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -454,7 +454,7 @@ class _InitialPage extends State<MyHomePage> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
