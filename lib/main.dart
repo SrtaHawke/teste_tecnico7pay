@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
-import 'package:collection/collection.dart';
-import 'dart:convert';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter/foundation.dart" show kIsWeb;
+import "package:geolocator/geolocator.dart";
+import "package:http/http.dart" as http;
+import "package:collection/collection.dart";
+import "dart:convert";
 
 void main() {
   runApp(const MyApp());
@@ -94,7 +94,7 @@ class _InitialPage extends State<MyHomePage> {
         buildTable(dataTable);
       }
     } else {
-      print("Sem dados para os parametros fornecidos");
+      print("Sem dados para os parâmetros fornecidos");
     }
   }
 
@@ -363,7 +363,7 @@ class _InitialPage extends State<MyHomePage> {
                         ElevatedButton(
                           onPressed: () async {
                             String? uf = selectedUF;
-                            String? bairro = bairroController.text;  // Obtenha o valor do controlador
+                            String? bairro = bairroController.text;
                             String? urlBase = "https://viacep.com.br/ws";
                             if (uf != null && bairro != "") {
                               String? capital = ufs.firstWhere((ufData) => ufData["UF"] == uf)["capital"];
@@ -398,49 +398,45 @@ class _InitialPage extends State<MyHomePage> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            minimumSize: const Size(150, 50), // Ajuste a altura conforme necessário
+                            minimumSize: const Size(150, 50),
                           ),
                           child: const Text(
                             'FILTRAR',
                             style: TextStyle(
-                              color: Colors.white, // Cor do texto branca
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        const SizedBox(width: 8), // Adicione um espaço de 8 pixels entre os botões
+                        const SizedBox(width: 8),
                         // 4- Botão Atualizar
                         ElevatedButton(
-                          onPressed: () {
-                            // Implemente a lógica do botão Atualizar aqui
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            minimumSize: const Size(150, 50), // Ajuste a altura conforme necessário
+                            minimumSize: const Size(150, 50),
                           ),
                           child: const Text(
                             'ATUALIZAR',
                             style: TextStyle(
-                              color: Colors.white, // Cor do texto branca
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        const SizedBox(width: 8), // Adicione um espaço de 8 pixels entre os botões
+                        const SizedBox(width: 8),
                         // 5- Botão CADASTRAR com ícone de +
                         ElevatedButton.icon(
-                          onPressed: () {
-                            // Implemente a lógica do botão CADASTRAR aqui
-                          },
+                          onPressed: () {},
                           icon: const Icon(
                             Icons.add,
                             color: Colors.white,
@@ -448,21 +444,21 @@ class _InitialPage extends State<MyHomePage> {
                           label: const Text(
                             'CADASTRAR',
                             style: TextStyle(
-                              color: Colors.white, // Cor do texto branca
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey.shade800, // Cor de fundo cinza escuro
+                            backgroundColor: Colors.grey.shade800,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            minimumSize: const Size(150, 50), // Ajuste a altura conforme necessário
+                            minimumSize: const Size(150, 50),
                           ),
                         ),
-                        const SizedBox(width: 8), // Adicione um espaço de 8 pixels entre os botões
-                        // 6- Ícone de download circundado por um círculo
+                        const SizedBox(width: 8),
+                        // 6- Ícone de download
                         Container(
                           margin: const EdgeInsets.all(8.0),
                           child: IconButton(
