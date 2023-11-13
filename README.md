@@ -1,6 +1,6 @@
 # teste_tecnico7pay
 
-A new Flutter project.
+Teste técnico de avaliação 7pay.
 
 ## Getting Started
 
