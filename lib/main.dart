@@ -38,8 +38,6 @@ class _InitialPage extends State<MyHomePage> {
   String? selectedUF;
   String? selectedBairro;
   String? selectedCapital;
-  int currentPage = 1;
-  int itemsPerPage = 15;
   TextEditingController bairroController = TextEditingController();
   late PaginatedDataTable _dataTableWidget;
   bool isDataReady = false;
@@ -88,6 +86,7 @@ class _InitialPage extends State<MyHomePage> {
   }
 
   Future<void> getDadosTable(String url) async {
+    print(url);
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) { 
       final List<Map<String, dynamic>> dataTable = List<Map<String, dynamic>>.from(json.decode(response.body));
